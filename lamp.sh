@@ -28,7 +28,7 @@ sudo apt-get -y install mysql-server
 
 #Set read/write permissions for apache www folder
 
-sudo chmod 755 -R /var/www/
+sudo chmod 757 -R /var/www/
 
 #Restart all the installed services to verify that everything is installed properly
 

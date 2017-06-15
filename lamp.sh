@@ -34,7 +34,7 @@ sudo chmod 755 -R /var/www/
 
 echo -e "\n"
 
-service apache2 restart && service mysql restart > /dev/null
+sudo service apache2 restart && service mysql restart > /dev/null
 
 echo -e "\n"
 

@@ -13,7 +13,7 @@ echo "##########################################################################
 
 #Update the repositories
 
-sudo apt-get update
+sudo apt-get update && sudo apt-get upgrade
 
 #Apache, Php, MySQL and required packages installation
 
@@ -26,6 +26,10 @@ sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password passwor
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password MYPASSWORD123'
 sudo apt-get -y install mysql-server
 
+#Set read/write permissions for apache www folder
+
+sudo chmod 755 -R /var/www/
+
 #Restart all the installed services to verify that everything is installed properly
 
 echo -e "\n"
@@ -33,6 +37,13 @@ echo -e "\n"
 service apache2 restart && service mysql restart > /dev/null
 
 echo -e "\n"
+
+#Setup firewall permissions and enable for security
+
+sudo ufw allow ssh
+sudo ufw allow http
+sudo ufw allow https
+sudo ufw enable
 
 if [ $? -ne 0 ]; then
    echo "Please Check the Install Services, There is some $(tput bold)$(tput setaf 1)Problem$(tput sgr0)"

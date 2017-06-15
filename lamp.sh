@@ -17,7 +17,7 @@ sudo apt-get update
 
 #Apache, Php, MySQL and required packages installation
 
-sudo apt-get -y install apache2 php libapache2-mod-php php-mcrypt php-curl ph5-mysql php-gd php-cli php-dev mysql-client
+sudo apt-get -y install apache2 php libapache2-mod-php php-mcrypt php-curl php-mysql php-gd php-cli php-dev mysql-client
 phpenmod mcrypt
 
 #The following commands set the MySQL root password to MYPASSWORD123 when you install the mysql-server package.
